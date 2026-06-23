@@ -43,7 +43,7 @@ jobs:
         with:
           context: .
           file: "Dockerfile"
-          tags: raidoc:latest
+          tags: ghcr.io/${{ github.repository }}/raidoc:latest
           load: true
           push: true
           # This caches docker layers to github actions cache
@@ -55,7 +55,7 @@ jobs:
       - name: Build raidoc
         uses: addnab/docker-run-action@v3
         with:
-          image: raidoc:latest
+          image: ghcr.io/${{ github.repository }}/raidoc:latest
           run: /venv/bin/python -m raidoc build
           options: |
             -v ${{ github.workspace }}/raimad-symlink:/venv/lib/python3.14/site-packages/raimad
