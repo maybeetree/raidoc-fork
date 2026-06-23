@@ -59,7 +59,7 @@ jobs:
           run: /venv/bin/python -m raidoc build
           options: |
             -v ${{ github.workspace }}/raimad-symlink:/venv/lib/python3.14/site-packages/raimad
-            -v ./:/pwd
+            -v ${{ github.workspace }}:/pwd
             --workdir /pwd
 
       - name: Upload docs artifact
