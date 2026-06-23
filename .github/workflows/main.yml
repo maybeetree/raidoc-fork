@@ -59,13 +59,13 @@ jobs:
           run: /venv/bin/python -m raidoc build
           options: |
             -v ${{ github.workspace }}/raimad-symlink:/venv/lib/python3.14/site-packages/raimad
-            -v .:/pwd
+            -v ./:/pwd
             --workdir /pwd
 
       - name: Upload docs artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs
+          path: ./build
 
   pages:
     runs-on: ubuntu-latest
