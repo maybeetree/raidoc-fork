@@ -15,6 +15,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+  permissions:
+    contents: write
+    packages: write
+    pages: write
+    id-token: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -30,7 +36,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ github.token }}
 
       - name: Docker build and push
         uses: docker/build-push-action@v5
